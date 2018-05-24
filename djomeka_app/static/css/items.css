@@ -1,0 +1,51 @@
+#searchform{
+    width: 100%;
+    padding-right: 37px;
+    top: 0;
+    left: 0;
+    right: 16px;
+    margin: 0;
+    height: 30px;
+    border-radius: 0;
+    color: #666666;
+    line-height: 20px;
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+
+}
+#items tr:nth-child(odd){background-color: #F3F3E7;}
+table
+{
+	width: 100%;
+    border-collapse: collapse;
+    clear: both;
+    margin-bottom: 16px;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+td {
+    border: 1px solid #E4E5DE;
+    padding: .625em;
+    vertical-align: top;
+}
+
+th {
+    background-color: #D8CFB6;
+    border: 1px solid #E4DECE;
+    padding: .25em .625em;
+    text-align: left;
+    font-weight: normal;
+        display: table-cell;
+    vertical-align: inherit;
+}
+
+#content{
+	background-color: 	#FFFFF0;
+	border: solid #9d5b41;
+	border-width: 5px 0 0 0;
+	box-shadow: 0 0 1px #999999;
+    padding: 20px 10px;
+}

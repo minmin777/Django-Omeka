@@ -7,8 +7,6 @@ from django.db import models
 from django.core.files.storage import FileSystemStorage
 from djomeka_app.models import *
 
-class SearchForm(forms.ModelForm):
+class SearchForm(forms.Form):
 	search = forms.CharField(label='search', max_length=100)
-	class Meta:
-		fields = ['title', 'date']
-		model = Items
+

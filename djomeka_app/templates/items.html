@@ -1,37 +1,65 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-<br><br>
-<div class="row">
+<br><br><br>
+<link rel="stylesheet" type="text/css" href="{% static 'css/items.css' %}">
 
-
-    <form id="searchform" action="{% url 'items' %}" method="get" accept-charset="utf-8">
+    <form id="searchform" action="" method="post" accept-charset="utf-8">
       {% csrf_token %}
-      <button class="searchbutton" type="submit">
-        <i class="fa fa-search"></i>
-      </button>
-      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
-    </form>
-{% if sites %}
-  {% for item in sites %}
-  <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="/item/{{ item.title }}" class="thumbnail purple"><b>{{ item.title }}</b><br><img src="/{{ item.files }}"></a>
+      {{ form }}
+      <input type="submit" value="Search" />
 
-  </div>
+    </form>
+<div id="content">
+<table id="items">
+  <thead>
+    <tr>
+      
+      <th onclick="sortTable(0)">Title</th>
+      <th onclick="sortTable(1)">Date Added</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% if sites %}
+        {% for item in sites %}
+        <td>
+          <a href="/item/{{ item.slug }}" class="item-thumbnail" ><img src="/{{item.files}}" style="float: left;margin: 0 10px 0 0;width: 20%;"></a>
+          <span class="title"> <a href="/item/{{ item.slug }}">{{item.title}}</a></span>
+        </td>
+        <td>
+          {{item.date}}
+        </td>
+      </tr>
   {% endfor %}
 {% else %}
   {% for item in items %}
-  <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="/item/{{ item.title }}" class="thumbnail purple"><b>{{ item.title }}</b><br><img src="/{{ item.files }}"></a>
-</div>
+      <tr>
+         <td>
+          <a href="/item/{{ item.slug }}" class="item-thumbnail" ><img src="/{{item.files}}" style="float: left;margin: 0 10px 0 0;width: 20%;"></a>
+          <span class="title"> <a href="/item/{{ item.slug }}">{{item.title}}</a></span>
+        </td>
+        <td>
+          {{item.date}}
+        </td>
 {% endfor %}
 {% endif %}
+    </tr>
+    
+
+  </tbody>
+</table>
+</div>
+<div class="row">
+
+
+
+
 </div>
 <script type="text/javascript">
 	function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("myTable");
+  table = document.getElementById("items");
   switching = true;
   //Set the sorting direction to ascending:
   dir = "asc"; 
