@@ -1,15 +1,13 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
-#from djrichtextfield.models import RichTextField
 import datetime
-
 
 class Items(models.Model):
 	title = models.CharField(max_length=30)
 	slug = models.SlugField(max_length=30, blank=True, null=True)
 	description = RichTextField()
-	files = models.FileField(upload_to='static/')
+	files = models.FileField(upload_to='media/')
 	url = models.URLField(max_length=200, blank=True, null=True)
 	date = models.DateField(default=datetime.date.today)
 	attributes = models.TextField(blank=True, null=True)

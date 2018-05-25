@@ -25,7 +25,7 @@ SECRET_KEY = 'l(61d(!_4m4$d90kc0c*t8sjz_&dpgo*2v7ch@(2o+gzdqt^e='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['104.236.79.82']
 
 
 # Application definition
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djomeka_app',
     'ckeditor',
-    'djrichtextfield',
     'ckeditor_uploader',
 ]
 
@@ -52,12 +51,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-STATIC_URL = '/static/'
+STATIC_URL = '/djomeka/static/'
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = "/srv/djomeka/djomeka_app/media/"
+MEDIA_ROOT = "/srv/Django-Omeka/djomeka/media/"
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'djomeka/static')
+#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'djomeka/media')
 #MEDIA_ROOT = STATIC_ROOT
 STATICFILES_DIRS = [
   os.path.join(BASE_DIR, 'djomeka_app/static'),
@@ -110,7 +109,8 @@ WSGI_APPLICATION = 'djomeka.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	'NAME': '/srv/Django-Omeka/data.sqlite3',
     }
 }
 
